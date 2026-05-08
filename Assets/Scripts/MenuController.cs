@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour
     public GameObject painelOpcoes;
     public GameObject painelListaAlunos;
     public GameObject painelDetalhesAluno;
+    public GameObject painelDificuldade;
 
     [Header("Configuracoes")]
     public Toggle toggleMudo;
@@ -126,6 +127,18 @@ public class MenuController : MonoBehaviour
         if (painelDetalhesAluno != null) painelDetalhesAluno.SetActive(false);
     }
 
+    public void AbrirDificuldadeMemoria()
+    {
+        painelSelecao.SetActive(false);
+        if (painelDificuldade != null) painelDificuldade.SetActive(true);
+    }
+
+    public void SelecionarFase(int fase)
+    {
+        scriptJogoMemoria.FaseSelecionada = fase;
+        SceneManager.LoadScene("JogoMemoria");
+    }
+
     public void ConfirmarSelecaoAluno()
     {
         SelecionarAluno(nomeAlunoSendoVisualizado);
@@ -223,7 +236,7 @@ public class MenuController : MonoBehaviour
 
     public void JogarMemoria()
     {
-        SceneManager.LoadScene("JogoMemoria");
+        AbrirDificuldadeMemoria();
     }
 
     public void SetMudo(bool mudo)

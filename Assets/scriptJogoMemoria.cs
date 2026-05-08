@@ -5,6 +5,8 @@ using TMPro;
 
 public class scriptJogoMemoria : MonoBehaviour
 {
+    public static int FaseSelecionada = 1; // Configuravel pelo Menu
+
     public int colunas;
     public GameObject carta;
     public Sprite[] cartas;
@@ -23,11 +25,13 @@ public class scriptJogoMemoria : MonoBehaviour
     bool jogoFinalizado;
     GameObject[] cartasClicadas;
     scripCarta[] listaCartas;
+    int totalPares; // Adicionado para controle de dificuldade
 
     ArrayList listaNumerosRandom = new ArrayList();
 
     private void Start()
     {
+        ConfigurarFase();
         cartasClicadas = new GameObject[2];
 
         float larguraCarta = 3.0f;
@@ -40,10 +44,10 @@ public class scriptJogoMemoria : MonoBehaviour
 
         Camera.main.transform.position = new Vector3(colunas *
         larguraCarta / 2.0f - larguraCarta / 2.0f,
-        cartas.Length * 2 / colunas * alturaCarta / 2.0f - alturaCarta / 2.0f,
+        totalPares * 2 / colunas * alturaCarta / 2.0f - alturaCarta / 2.0f,
         -1.0f);
 
-        for (int i = 0; i < cartas.Length * 2; i++)
+        for (int i = 0; i < totalPares * 2; i++)
         {
             int indiceRandom = Random.Range(0,
             listaNumerosRandom.Count);
@@ -51,7 +55,7 @@ public class scriptJogoMemoria : MonoBehaviour
             listaNumerosRandom.Insert(indiceRandom, indice);
         }
 
-        for (int i = 0; i < cartas.Length * 2; i++)
+        for (int i = 0; i < totalPares * 2; i++)
         {
             GameObject cartaNova = Instantiate(carta);
             cartaNova.GetComponent<scripCarta>().indiceCarta = (int)listaNumerosRandom[i];
@@ -67,6 +71,18 @@ public class scriptJogoMemoria : MonoBehaviour
         else
         {
             podeJogar = true;
+        }
+    }
+
+    void ConfigurarFase()
+    {
+        numeroDaFase = FaseSelecionada;
+        switch (numeroDaFase)
+        {
+            case 1: totalPares = 2; colunas = 2; break;
+            case 2: totalPares = 4; colunas = 4; break;
+            case 3: totalPares = 8; colunas = 4; break;
+            default: totalPares = 8; colunas = 4; break;
         }
     }
 
@@ -171,7 +187,7 @@ public class scriptJogoMemoria : MonoBehaviour
 
     public void VerificaFimDeJogo()
     {
-        if (pontos == cartas.Length)
+        if (pontos == totalPares)
         {
             jogoFinalizado = true;
             DataManager.SalvarProgresso("JogoMemoria", numeroDaFase, true, tempoDecorrido);
