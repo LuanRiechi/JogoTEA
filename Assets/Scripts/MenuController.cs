@@ -28,9 +28,11 @@ public class MenuController : MonoBehaviour
     public List<Button> gameButtons = new List<Button>();
 
     private string nomeAlunoSendoVisualizado;
+    private enum TipoJogo { Memoria, Labirinto, Puzzle }
+    private TipoJogo jogoAtual;
 
     private void Start()
-    {
+{
         DataManager.Carregar();
         AbrirMenuPrincipal();
         AtualizarInterfaceAlunos();
@@ -51,6 +53,7 @@ public class MenuController : MonoBehaviour
         painelOpcoes.SetActive(false);
         if (painelListaAlunos != null) painelListaAlunos.SetActive(false);
         if (painelDetalhesAluno != null) painelDetalhesAluno.SetActive(false);
+        if (painelDificuldade != null) painelDificuldade.SetActive(false);
     }
 
     public void AbrirSelecaoFase()
@@ -60,6 +63,7 @@ public class MenuController : MonoBehaviour
         painelOpcoes.SetActive(false);
         if (painelListaAlunos != null) painelListaAlunos.SetActive(false);
         if (painelDetalhesAluno != null) painelDetalhesAluno.SetActive(false);
+        if (painelDificuldade != null) painelDificuldade.SetActive(false);
         AtualizarInterfaceAlunos();
     }
 
@@ -70,6 +74,7 @@ public class MenuController : MonoBehaviour
         painelOpcoes.SetActive(true);
         if (painelListaAlunos != null) painelListaAlunos.SetActive(false);
         if (painelDetalhesAluno != null) painelDetalhesAluno.SetActive(false);
+        if (painelDificuldade != null) painelDificuldade.SetActive(false);
     }
 
     public void AbrirListaAlunos()
@@ -127,7 +132,7 @@ public class MenuController : MonoBehaviour
         if (painelDetalhesAluno != null) painelDetalhesAluno.SetActive(false);
     }
 
-    public void AbrirDificuldadeMemoria()
+    public void AbrirDificuldade()
     {
         painelSelecao.SetActive(false);
         if (painelDificuldade != null) painelDificuldade.SetActive(true);
@@ -135,9 +140,22 @@ public class MenuController : MonoBehaviour
 
     public void SelecionarFase(int fase)
     {
-        scriptJogoMemoria.FaseSelecionada = fase;
-        SceneManager.LoadScene("JogoMemoria");
-    }
+        if (jogoAtual == TipoJogo.Memoria)
+        {
+            scriptJogoMemoria.FaseSelecionada = fase;
+            SceneManager.LoadScene("JogoMemoria");
+        }
+        else if (jogoAtual == TipoJogo.Labirinto)
+        {
+            LabirintoGameManager.FaseSelecionada = fase;
+            SceneManager.LoadScene("JogoLabirinto");
+        }
+        else if (jogoAtual == TipoJogo.Puzzle)
+        {
+            PuzzleGameManager.FaseSelecionada = fase;
+            SceneManager.LoadScene("PuzzleGame");
+        }
+        }
 
     public void ConfirmarSelecaoAluno()
     {
@@ -236,11 +254,24 @@ public class MenuController : MonoBehaviour
 
     public void JogarMemoria()
     {
-        AbrirDificuldadeMemoria();
+        jogoAtual = TipoJogo.Memoria;
+        AbrirDificuldade();
+    }
+
+    public void JogarLabirinto()
+    {
+        jogoAtual = TipoJogo.Labirinto;
+        AbrirDificuldade();
+    }
+
+    public void JogarPuzzle()
+    {
+        jogoAtual = TipoJogo.Puzzle;
+        AbrirDificuldade();
     }
 
     public void SetMudo(bool mudo)
-    {
+{
         AudioListener.pause = mudo;
         PlayerPrefs.SetInt("Mudo", mudo ? 1 : 0);
         PlayerPrefs.Save();

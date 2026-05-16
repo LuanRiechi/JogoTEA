@@ -1,0 +1,28 @@
+{
+    "asset": "8141f05320f4f1844896177e7c45e4ee",
+    "fileName": "019e3161-7d3a-787c-a859-9c8e8f806b41.png",
+    "prompt": "A colorful 2D cartoon stone block tile for maze walls, preschool game style, square shape, bright colors, jungle or prehistoric theme.",
+    "negativePrompt": "",
+    "model": "gemini-3.1-flash",
+    "modelName": "Gemini 3.1 Nano Banana 2",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 1024,
+        "height": 1024
+    },
+    "spriteSheet": false,
+    "duration": 0.0
+}
