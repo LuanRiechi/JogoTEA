@@ -16,7 +16,8 @@ public class MenuController : MonoBehaviour
     public GameObject painelDificuldade;
 
     [Header("Configuracoes")]
-    public Toggle toggleMudo;
+    public Button botaoMudo;
+    public TextMeshProUGUI textoBotaoMudo;
 
     [Header("Gestao de Alunos")]
     public TMP_InputField inputNomeAluno;
@@ -32,17 +33,62 @@ public class MenuController : MonoBehaviour
     private TipoJogo jogoAtual;
 
     private void Start()
-{
+    {
+        // Carrega os dados salvos dos alunos via DataManager
         DataManager.Carregar();
+        
+        // Inicializa a interface abrindo o menu principal e atualizando a lista de alunos
         AbrirMenuPrincipal();
         AtualizarInterfaceAlunos();
         
-        if (toggleMudo != null)
+        // Configuração inicial do sistema de áudio (Mudo)
+        if (botaoMudo != null)
         {
+            // Recupera o estado de mudo salvo nas preferências do usuário (padrão é desligado/0)
             bool estaMudo = PlayerPrefs.GetInt("Mudo", 0) == 1;
-            toggleMudo.isOn = estaMudo;
+            
+            // Aplica o estado inicial ao AudioListener global
             AudioListener.pause = estaMudo;
-            toggleMudo.onValueChanged.AddListener(SetMudo);
+            
+            // Atualiza o texto do botão para refletir se o som está ligado ou desligado
+            AtualizarTextoBotaoMudo(estaMudo);
+            
+            // Configura o evento de clique para alternar o estado do som
+            botaoMudo.onClick.AddListener(AlternarMudo);
+        }
+    }
+
+    // Método chamado pelo botão para inverter o estado atual do áudio
+    public void AlternarMudo()
+    {
+        // Inverte o estado atual da pausa do AudioListener
+        bool novoEstadoMudo = !AudioListener.pause;
+        
+        // Aplica e salva o novo estado
+        SetMudo(novoEstadoMudo);
+    }
+
+    // Define o estado de mudo e atualiza a interface e persistência
+    public void SetMudo(bool mudo)
+    {
+        // Define a pausa global do áudio
+        AudioListener.pause = mudo;
+        
+        // Salva a preferência do usuário (1 para mudo, 0 para ativo)
+        PlayerPrefs.SetInt("Mudo", mudo ? 1 : 0);
+        PlayerPrefs.Save();
+
+        // Atualiza visualmente o texto do botão
+        AtualizarTextoBotaoMudo(mudo);
+    }
+
+    // Atualiza o componente de texto vinculado ao botão de som
+    private void AtualizarTextoBotaoMudo(bool mudo)
+    {
+        if (textoBotaoMudo != null)
+        {
+            // Define a mensagem baseada no estado de silêncio
+            textoBotaoMudo.text = mudo ? "Som: Desligado" : "Som: Ligado";
         }
     }
 
@@ -268,13 +314,6 @@ public class MenuController : MonoBehaviour
     {
         jogoAtual = TipoJogo.Puzzle;
         AbrirDificuldade();
-    }
-
-    public void SetMudo(bool mudo)
-{
-        AudioListener.pause = mudo;
-        PlayerPrefs.SetInt("Mudo", mudo ? 1 : 0);
-        PlayerPrefs.Save();
     }
 
     public void SairDoJogo()

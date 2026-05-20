@@ -1,0 +1,1118 @@
+fileFormatVersion: 2
+guid: 251b9fef2f149fe4aaa22a7432f24a20
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2487834398499115550
+    second: MenuParabens_0
+  - first:
+      213: 6601151340620152861
+    second: MenuParabens_1
+  - first:
+      213: -1590859750028604484
+    second: MenuParabens_2
+  - first:
+      213: 5935106980801082575
+    second: MenuParabens_3
+  - first:
+      213: -4742684881336620044
+    second: MenuParabens_4
+  - first:
+      213: 7334215601112137861
+    second: MenuParabens_5
+  - first:
+      213: -8438566557929908594
+    second: MenuParabens_6
+  - first:
+      213: -4629713470291135235
+    second: MenuParabens_7
+  - first:
+      213: 7176293579495394381
+    second: MenuParabens_8
+  - first:
+      213: -8836715679007819431
+    second: MenuParabens_9
+  - first:
+      213: 664097658091253180
+    second: MenuParabens_10
+  - first:
+      213: -6556315604912225208
+    second: MenuParabens_11
+  - first:
+      213: 2701141905190223419
+    second: MenuParabens_12
+  - first:
+      213: -4783638812601930764
+    second: MenuParabens_13
+  - first:
+      213: -7188701651875502972
+    second: MenuParabens_14
+  - first:
+      213: -1310810941266985896
+    second: MenuParabens_15
+  - first:
+      213: -1363830971829024222
+    second: MenuParabens_16
+  - first:
+      213: 4850711784562091056
+    second: MenuParabens_17
+  - first:
+      213: 3774873199481942374
+    second: MenuParabens_18
+  - first:
+      213: 5005810392657366377
+    second: MenuParabens_19
+  - first:
+      213: -4196225581845904837
+    second: MenuParabens_20
+  - first:
+      213: -1616191915642354411
+    second: MenuParabens_21
+  - first:
+      213: -4848245210354756429
+    second: MenuParabens_22
+  - first:
+      213: 8619219261417609486
+    second: MenuParabens_23
+  - first:
+      213: 2783715307787430579
+    second: MenuParabens_24
+  - first:
+      213: -2212100662601458840
+    second: MenuParabens_25
+  - first:
+      213: -6602163358898266905
+    second: MenuParabens_26
+  - first:
+      213: -3568192866398989744
+    second: MenuParabens_27
+  - first:
+      213: -2698425466832476465
+    second: MenuParabens_28
+  - first:
+      213: 2511943903964910982
+    second: MenuParabens_29
+  - first:
+      213: -8251312724700610798
+    second: MenuParabens_30
+  - first:
+      213: -7320782116621608229
+    second: MenuParabens_31
+  - first:
+      213: -1004781291829326865
+    second: MenuParabens_32
+  - first:
+      213: 8709616180445857192
+    second: MenuParabens_33
+  - first:
+      213: 660983029493850130
+    second: MenuParabens_34
+  - first:
+      213: -5033515351811081327
+    second: MenuParabens_35
+  - first:
+      213: 3322026412710568702
+    second: MenuParabens_36
+  - first:
+      213: 3076803477974863580
+    second: MenuParabens_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MenuParabens_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 1529
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12998e4430968220800000000000000
+      internalID: 2487834398499115550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_1
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 934
+        width: 38
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10024e7b200c9b50800000000000000
+      internalID: 6601151340620152861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_2
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 948
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb04107c712ce9e0800000000000000
+      internalID: -1590859750028604484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_3
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 956
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4f69e7a5cbd5250800000000000000
+      internalID: 5935106980801082575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_4
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 751
+        width: 386
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fba05e6a399e2eb0800000000000000
+      internalID: -4742684881336620044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_5
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 193
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580ca6a1b3e58c560800000000000000
+      internalID: 7334215601112137861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_6
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 172
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e86d81dcc6034ea80800000000000000
+      internalID: -8438566557929908594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_7
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 170
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4b477c024ffbfb0800000000000000
+      internalID: -4629713470291135235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_8
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 175
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c4db92df0579360800000000000000
+      internalID: 7176293579495394381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_9
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 167
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9593d9ba8edad5580800000000000000
+      internalID: -8836715679007819431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_10
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 167
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbda2be2d49573900800000000000000
+      internalID: 664097658091253180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_11
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 163
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8444bd5b1b94305a0800000000000000
+      internalID: -6556315604912225208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_12
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 170
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ef8c260426c7520800000000000000
+      internalID: 2701141905190223419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_13
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 151
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb271148d91d9db0800000000000000
+      internalID: -4783638812601930764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_14
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 145
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48462bb5fe99c3c90800000000000000
+      internalID: -7188701651875502972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_15
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 176
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85cf516d4601fcde0800000000000000
+      internalID: -1310810941266985896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_16
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 165
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22a847ef4f2b21de0800000000000000
+      internalID: -1363830971829024222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_17
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 175
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034ef9afaa0315340800000000000000
+      internalID: 4850711784562091056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_18
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 162
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661734fbc2b036430800000000000000
+      internalID: 3774873199481942374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_19
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 153
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d0d4bb706387540800000000000000
+      internalID: 5005810392657366377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_20
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 159
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b320bacd01304c5c0800000000000000
+      internalID: -4196225581845904837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_21
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 151
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515874304022299e0800000000000000
+      internalID: -1616191915642354411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_22
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 162
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4d0d41ba297bcb0800000000000000
+      internalID: -4848245210354756429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_23
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 162
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09500e604e9d9770800000000000000
+      internalID: 8619219261417609486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_24
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 147
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3baac7cd25eb1a620800000000000000
+      internalID: 2783715307787430579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_25
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 150
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86bdb36ea2a0d41e0800000000000000
+      internalID: -2212100662601458840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_26
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 151
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ecd4c3a7676064a0800000000000000
+      internalID: -6602163358898266905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_27
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 150
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052943c3e7b3b7ec0800000000000000
+      internalID: -3568192866398989744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_28
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 151
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc62594b5544d8ad0800000000000000
+      internalID: -2698425466832476465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_29
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 154
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685598bfba73cd220800000000000000
+      internalID: 2511943903964910982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_30
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 150
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f3f815bc27d7d80800000000000000
+      internalID: -8251312724700610798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_31
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 151
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda9cbcb37b576a90800000000000000
+      internalID: -7320782116621608229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_32
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 153
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feb0e871dbc4e02f0800000000000000
+      internalID: -1004781291829326865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_33
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 152
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5487545c5ced870800000000000000
+      internalID: 8709616180445857192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_34
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 154
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210ea8330984c2900800000000000000
+      internalID: 660983029493850130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_35
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 145
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b33dbc47c552ab0800000000000000
+      internalID: -5033515351811081327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_36
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 146
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef22418eb653a1e20800000000000000
+      internalID: 3322026412710568702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuParabens_37
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 103
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdec06c267003ba20800000000000000
+      internalID: 3076803477974863580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MenuParabens_0: 2487834398499115550
+      MenuParabens_1: 6601151340620152861
+      MenuParabens_10: 664097658091253180
+      MenuParabens_11: -6556315604912225208
+      MenuParabens_12: 2701141905190223419
+      MenuParabens_13: -4783638812601930764
+      MenuParabens_14: -7188701651875502972
+      MenuParabens_15: -1310810941266985896
+      MenuParabens_16: -1363830971829024222
+      MenuParabens_17: 4850711784562091056
+      MenuParabens_18: 3774873199481942374
+      MenuParabens_19: 5005810392657366377
+      MenuParabens_2: -1590859750028604484
+      MenuParabens_20: -4196225581845904837
+      MenuParabens_21: -1616191915642354411
+      MenuParabens_22: -4848245210354756429
+      MenuParabens_23: 8619219261417609486
+      MenuParabens_24: 2783715307787430579
+      MenuParabens_25: -2212100662601458840
+      MenuParabens_26: -6602163358898266905
+      MenuParabens_27: -3568192866398989744
+      MenuParabens_28: -2698425466832476465
+      MenuParabens_29: 2511943903964910982
+      MenuParabens_3: 5935106980801082575
+      MenuParabens_30: -8251312724700610798
+      MenuParabens_31: -7320782116621608229
+      MenuParabens_32: -1004781291829326865
+      MenuParabens_33: 8709616180445857192
+      MenuParabens_34: 660983029493850130
+      MenuParabens_35: -5033515351811081327
+      MenuParabens_36: 3322026412710568702
+      MenuParabens_37: 3076803477974863580
+      MenuParabens_4: -4742684881336620044
+      MenuParabens_5: 7334215601112137861
+      MenuParabens_6: -8438566557929908594
+      MenuParabens_7: -4629713470291135235
+      MenuParabens_8: 7176293579495394381
+      MenuParabens_9: -8836715679007819431
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
