@@ -1,67 +1,102 @@
-# Technical Documentation: JogoTEA
+# Documentação Técnica Oficial: JogoTEA
 
-## 1. Project Description
-**JogoTEA** is an educational Unity project designed to support children with Autism Spectrum Disorder (ASD/TEA). The project features mini-games focused on cognitive development, including a Memory Game and a Maze Game. A central pillar of the experience is the Student Management system, which allows teachers or guardians to track individual progress, best times, and completed levels for multiple students.
+## 1. Introdução
+O **JogoTEA** é uma plataforma educacional modular desenvolvida em Unity, projetada para auxiliar no desenvolvimento cognitivo de crianças com Transtorno do Espectro Autista (TEA). O projeto prioriza acessibilidade, feedback visual claro e persistência de dados para acompanhamento de progresso pedagógico.
 
-## 2. Gameplay Flow / User Loop
-1.  **Boot & Authentication**: The game starts at `MenuInicial`. Users must either select an existing student profile or create a new one to unlock access to the mini-games.
-2.  **Mini-Game Selection**: Once a student is active, the user can choose between the Memory Game (`JogoMemoria`) or the Maze Game (`JogoLabirinto`).
-3.  **Core Loop (Mini-Games)**:
-    *   **Memory Game**: Select difficulty (3 levels), flip cards to find pairs, and complete the set.
-    *   **Maze Game**: Navigate a character (Dinosaur) through a 2D maze to reach the finish line.
-4.  **Completion & Feedback**: Upon finishing a game, a "Success" panel displays the completion time and updates the student's persistent data if a new record is achieved.
-5.  **Return/Exit**: The user can return to the main menu to switch students, view progress reports, or exit the application.
+O sistema é estruturado em três camadas fundamentais:
+*   **Apresentação (UI)**: Construída com uGUI e TextMesh Pro, focada em interfaces limpas e previsíveis.
+*   **Lógica de Jogo (Managers)**: Controladores de cena que gerenciam o fluxo, cronômetros e regras de vitória.
+*   **Persistência (Dados)**: Engine SQL local para armazenamento resiliente de perfis e métricas de desempenho.
 
-## 3. Architecture
-The project follows a **Manager-centric** architecture with a clear separation between data persistence and game logic.
-*   **Data Persistence**: Handled by the static `DataManager`, which uses JSON serialization to save data to the disk.
-*   **Scene Management**: `MenuController` acts as the primary orchestrator for UI transitions and scene loading.
-*   **Mini-Game Isolation**: Each mini-game operates within its own scene with a dedicated Manager (`scriptJogoMemoria`, `LabirintoGameManager`) that communicates back to the `DataManager` only upon game completion.
-*   **Data Flow**: `UI -> MenuController -> DataManager (Static) <- Mini-Game Managers`.
+---
 
-`Location: Assets/Scripts`
+## 2. Arquitetura e Fluxo de Dados
 
-## 4. Game Systems & Domain Concepts
+O projeto adota uma arquitetura orientada a **Managers**, com separação clara entre lógica de jogo, interface e persistência.
 
-### Student Management System
-*   `DataManager`: Static class managing the `GameData` container, handling JSON Save/Load logic.
-*   `Aluno`: Data class representing a student, containing a list of `FaseProgresso`.
-*   `FaseProgresso`: Stores specific stats (game name, level index, completion status, best time).
-*   **Extension**: Add new fields to the `Aluno` class (e.g., age, specific needs) and update `DataManager.Salvar()` to include them in the JSON.
-`Location: Assets/Scripts/DataManager.cs`
+### A. Gestão de Dados Centralizada (`DataManager.cs`)
+Atua como o ponto central (Facade) para todas as operações de dados.
+*   **Sincronização**: Implementa um sistema de **Cache em Memória** (`GameData`) que é invalidado automaticamente após qualquer operação de escrita (Criação/Deleção de aluno ou Salvamento de progresso).
+*   **Integridade**: Garante que os mini-games recebam apenas o aluno ativo e que recordes (melhor tempo) sejam validados antes de serem persistidos.
 
-### Memory Game System
-*   `scriptJogoMemoria`: Main logic for card shuffling, pair matching, and difficulty scaling (Grid size 2x2 to 4x4).
-*   `scripCarta`: Individual card behavior, handling click events, animations, and texture swapping.
-*   **Extension**: New difficulties can be added by extending the `switch` statement in `ConfigurarFase()` and providing more card sprites.
-`Location: Assets/` (Main folder)
+### B. Camada SQL (`SQLiteService.cs`)
+Responsável pela comunicação direta com o arquivo `jogotea.db`.
+*   **Esquema de Tabelas**:
+    *   `Alunos`: ID único e Nome (Unique).
+    *   `Progressos`: Registra mini-game, fase, estado de conclusão e o melhor tempo. Utiliza `ON DELETE CASCADE` para limpar dados quando um aluno é removido.
+    *   `AppConfig`: Armazena variáveis globais de estado (ex: último aluno selecionado).
+*   **Localização**: O banco é salvo em `Application.persistentDataPath`, garantindo persistência mesmo após atualizações do app.
 
-### Maze Navigation System
-*   `LabirintoPlayerController`: Handles 2D movement using `Rigidbody2D.linearVelocity` (Unity 6) and input detection.
-*   `LabirintoGameManager`: Tracks time and detects the "Finish" trigger to conclude the level.
-*   **Extension**: Add obstacles or "pickups" by creating new classes that interact with the `LabirintoPlayerController` or modify speed variables.
-`Location: Assets/MiniGames/Maze/Scripts/`
+### C. Navegação e UI (`MenuController.cs`)
+Orquestra a transição entre painéis no menu inicial.
+*   **Fluxo de Paineis**: Principal -> Seleção de Jogo -> Seleção de Dificuldade -> Cena de Jogo.
+*   **Regra de Acesso**: Os botões de início de jogo são monitorados e tornam-se interativos apenas quando um aluno está "Ativo" no sistema via `gameButtons.interactable`.
 
-## 5. Scene Overview
-*   `MenuInicial`: The entry point. Contains the student registry, profile selection, and the primary navigation hub.
-*   `JogoMemoria`: A dynamic scene that adjusts its grid and card count based on the `FaseSelecionada` static variable set by the menu.
-*   `JogoLabirinto`: A 2D top-down navigation level. Current implementation suggests a single-level structure or prefab-based layout.
+---
 
-## 6. UI System
-The project uses **Unity UI (uGUI)** combined with **TextMesh Pro** for high-quality text rendering.
-*   **Menu Panels**: Managed via `GameObject` toggling in `MenuController` (`painelPrincipal`, `painelSelecao`, etc.).
-*   **Dynamic Lists**: The `PopularListaAlunos` method instantiates prefab buttons into a vertical/grid layout to display the student database.
-*   **Feedback UI**: Mini-games use overlay Canvases for "Success" messages and real-time timers.
-*   **UI Binding**: Standard Unity Events (OnClick) are used to link buttons to `MenuController` methods.
+## 3. Estrutura de Dados e Modelos
 
-## 7. Asset & Data Model
-*   **Persistence**: Data is stored in `game_data.json` located in `Application.persistentDataPath`.
-*   **Visual Assets**: Uses 2D Sprites for cards and dinosaurs. Animations for card flipping are handled via the `Animator` component with `AnimacaoAbre` and `AnimacaoFecha`.
-*   **Naming Convention**: A mix of English and Portuguese (e.g., `DataManager.cs` vs `scripCarta.cs`).
-*   **Prefabs**: `Card.prefab` is the central unit for the Memory game, containing the sprite renderer and animator.
+Os dados são persistidos no namespace `JogoTEA.Persistence` utilizando classes mapeadas para o SQLite.
 
-## 8. Notes, Caveats & Gotchas
-*   **Static Variable Dependency**: The Memory Game relies on `scriptJogoMemoria.FaseSelecionada`. Ensure this is set before loading the scene, or it defaults to Fase 1.
-*   **Unity 6 Physics**: `LabirintoPlayerController` uses `rb.linearVelocity`. If downgrading the Unity version, this must be changed to `rb.velocity`.
-*   **Data Integrity**: `DataManager` is a static class. It does not exist in the hierarchy, but `DataManager.Carregar()` must be called (currently handled in `MenuController.Start()`).
-*   **Audio**: The "Mudo" (Mute) setting is saved in `PlayerPrefs`, independent of the student JSON data.
+### Entidades (`DatabaseModels.cs`):
+1.  **`AlunoEntity`**: Define o perfil do estudante (Id, Nome).
+2.  **`ProgressoEntity`**: Registro histórico de desempenho (AlunoId, MiniGame, Fase, Completou, MelhorTempo).
+3.  **`ConfigEntity`**: Persistência de estado da aplicação (Chave, Valor).
+
+---
+
+## 4. Detalhamento dos Mini-Games
+
+### A. Jogo da Memória (`scriptJogoMemoria.cs`)
+*   **Dinâmica**: Geração de grade baseada no nível (2x2, 4x4, etc).
+*   **Mecânicas**: 
+    *   **`scripCarta.cs`**: Gerencia o estado da face da carta, disparando animações de flip.
+    *   **Dica Inicial**: Sistema opcional que revela todas as cartas por 5 segundos no início da partida.
+*   **Dificuldade**: Escala conforme a variável estática `FaseSelecionada`.
+
+### B. Jogo de Labirinto (`LabirintoGameManager.cs`)
+*   **Navegação**: 2D top-down focada em precisão motora.
+*   **Física (`LabirintoPlayerController.cs`)**: Utiliza o novo sistema de física do Unity 6 (`linearVelocity`) para movimento fluido e constante, ignorando rotações indesejadas.
+*   **Feedback**: Captura o tempo exato desde o movimento inicial até o trigger de chegada com a tag "Finish".
+
+### C. Jogo de Quebra-Cabeça (Puzzle) (`PuzzleGameManager.cs`)
+*   **Geração Dinâmica (`PuzzleGenerator.cs`)**: Sorteia imagens da pasta `Assets/MiniGames/Puzzle/Sprites` e as fatia em peças em tempo de execução via `Sprite.Create`.
+*   **Interação (`PuzzlePiece.cs`)**:
+    *   **Arraste**: Usa `OnMouseDown` para capturar a peça e `OnMouseUp` para soltar.
+    *   **Snap**: Implementa um sistema de atração magnética quando a peça está próxima da sua `targetPosition`.
+*   **Guia Visual**: Exibe uma imagem "fantasma" ao fundo para reduzir a carga cognitiva da criança durante a montagem.
+
+---
+
+## 5. Sistemas Auxiliares
+
+### Gerenciamento de Áudio
+*   **Implementação**: O estado de "Mudo" é controlado globalmente através do `AudioListener.pause`.
+*   **Persistência**: Utiliza `PlayerPrefs` para garantir que a preferência de áudio seja aplicada instantaneamente no `Awake` de qualquer cena, independente do banco de dados.
+
+### Sistema de Dificuldade
+*   Cada mini-game possui 3 níveis de dificuldade (Fase 1, 2 e 3).
+*   O nível selecionado no menu é transmitido para as cenas de jogo através de variáveis estáticas em cada Manager de jogo (ex: `scriptJogoMemoria.FaseSelecionada`).
+
+---
+
+## 6. Guia de Manutenção e Expansão
+
+### Requisitos Técnicos:
+*   **Unity 6.0+**: Necessário para suporte à propriedade `linearVelocity`.
+*   **Plugins**: Requer `sqlite3.dll`, `Mono.Data.Sqlite.dll` e `System.Data.dll` em `Assets/Plugins`.
+
+### Como adicionar um novo Mini-Game:
+1.  **Criação da Cena**: Desenvolva a cena do jogo de forma independente.
+2.  **Integração de Dados**: Ao finalizar a fase, utilize `DataManager.SalvarProgresso("NomeDoJogo", fase, true, tempo)`.
+3.  **Registro no Menu**: 
+    *   Adicione o novo tipo ao enum `TipoJogo` no `MenuController.cs`.
+    *   Adicione o botão de início à lista `gameButtons` no Inspetor para validação automática de aluno ativo.
+4.  **Imagens (Puzzle)**: Para adicionar novas imagens ao Puzzle, basta colocar arquivos `.png` em `Assets/MiniGames/Puzzle/Sprites`.
+
+---
+
+## 7. Localização de Dados
+*   **Banco de Dados**: `%AppData%/LocalLow/[Empresa]/JogoTEA/jogotea.db`
+*   **Cache**: O sistema invalida o cache automaticamente em cada operação de escrita para garantir integridade.
+

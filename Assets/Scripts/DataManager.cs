@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using JogoTEA.Persistence;
 
+/*
+ * DataManager atua como a fachada principal para o sistema de dados.
+ * Ele gerencia o cache em memória e delega a persistência para o SQLiteService.
+ */
 [Serializable]
 public class FaseProgresso
 {
@@ -29,126 +34,118 @@ public class GameData
 
 public static class DataManager
 {
-    private static string path = Path.Combine(Application.persistentDataPath, "game_data.json");
-    private static GameData _data;
+    private static SQLiteService _sqlite;
+    private static GameData _cachedData;
 
+    // Acesso preguiçoso ao serviço SQLite
+    private static SQLiteService db
+    {
+        get
+        {
+            if (_sqlite == null) _sqlite = new SQLiteService();
+            return _sqlite;
+        }
+    }
+
+    // Acesso aos dados globais com carregamento automático
     public static GameData Data
     {
         get
         {
-            if (_data == null) Carregar();
-            return _data;
+            if (_cachedData == null) LoadAllFromDb();
+            return _cachedData;
         }
     }
 
+    // Carrega todos os alunos, progressos e configurações do banco para o cache
+    private static void LoadAllFromDb()
+    {
+        _cachedData = new GameData();
+        var alunosEntities = db.GetAllAlunos();
+        
+        foreach (var entity in alunosEntities)
+        {
+            var aluno = new Aluno { nome = entity.Nome };
+            var progressos = db.GetProgressoByAlunoId(entity.Id);
+            aluno.progressos = progressos.Select(p => new FaseProgresso {
+                miniGame = p.MiniGame,
+                fase = p.Fase,
+                completou = p.Completou,
+                melhorTempo = p.MelhorTempo
+            }).ToList();
+            
+            _cachedData.alunos.Add(aluno);
+        }
+
+        _cachedData.alunoSelecionado = db.GetConfig("alunoSelecionado");
+    }
+
+    // Método mantido para compatibilidade, mas o SQLite salva automaticamente em cada operação
     public static void Salvar()
     {
-        if (Data == null) return;
-        string json = JsonUtility.ToJson(Data, true);
-        File.WriteAllText(path, json);
     }
 
+    // Inicializa o sistema (chamado no MenuController)
     public static void Carregar()
     {
-        try
-        {
-            if (File.Exists(path))
-            {
-                string json = File.ReadAllText(path);
-                if (string.IsNullOrEmpty(json))
-                {
-                    _data = new GameData();
-                }
-                else
-                {
-                    _data = JsonUtility.FromJson<GameData>(json);
-                    if (_data == null) _data = new GameData();
-                    if (_data.alunos == null) _data.alunos = new List<Aluno>();
-                }
-            }
-            else
-            {
-                _data = new GameData();
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Erro ao carregar dados: " + e.Message);
-            _data = new GameData();
-        }
+        LoadAllFromDb();
     }
 
+    // Cria um novo aluno. Retorna true se criado com sucesso.
     public static bool CriarAluno(string nome)
     {
         if (string.IsNullOrEmpty(nome)) return false;
-        
-        // Ensure data is loaded
-        if (Data == null || Data.alunos == null) return false;
 
-        if (Data.alunos.Any(a => a != null && a.nome != null && a.nome.Equals(nome, StringComparison.OrdinalIgnoreCase)))
+        if (db.CreateAluno(nome))
         {
-            return false; // Nome ja existe
+            _cachedData = null; // Invalida o cache para forçar recarregamento
+            return true;
         }
-
-        Data.alunos.Add(new Aluno { nome = nome });
-        Salvar();
-        return true;
+        return false;
     }
 
+    // Define qual aluno está ativo no sistema
     public static void SelecionarAluno(string nome)
     {
-        if (Data == null) return;
-        Data.alunoSelecionado = nome;
-        Salvar();
+        db.SaveConfig("alunoSelecionado", nome);
+        if (_cachedData != null) _cachedData.alunoSelecionado = nome;
     }
 
+    // Remove um aluno e limpa a seleção se o aluno removido era o ativo
     public static void DeletarAluno(string nome)
     {
-        if (Data == null || Data.alunos == null) return;
-        
-        Aluno aluno = Data.alunos.FirstOrDefault(a => a.nome == nome);
-        if (aluno != null)
+        // Se o aluno deletado for o selecionado, limpa a configuração de seleção
+        string selecionado = db.GetConfig("alunoSelecionado");
+        if (selecionado == nome)
         {
-            Data.alunos.Remove(aluno);
-            if (Data.alunoSelecionado == nome)
-            {
-                Data.alunoSelecionado = "";
-            }
-            Salvar();
+            db.SaveConfig("alunoSelecionado", "");
         }
+
+        db.DeleteAluno(nome);
+        _cachedData = null; // Invalida o cache
     }
 
+    // Retorna o objeto do aluno que está atualmente selecionado
     public static Aluno GetAlunoAtivo()
-{
-        if (Data == null || string.IsNullOrEmpty(Data.alunoSelecionado) || Data.alunos == null) return null;
-        return Data.alunos.FirstOrDefault(a => a != null && a.nome == Data.alunoSelecionado);
+    {
+        string selecionado = db.GetConfig("alunoSelecionado");
+        if (string.IsNullOrEmpty(selecionado)) return null;
+
+        var alunos = Data.alunos;
+        return alunos.FirstOrDefault(a => a.nome == selecionado);
     }
 
+    // Salva o progresso de uma partida no mini-game
     public static void SalvarProgresso(string miniGame, int fase, bool completou, float tempo)
     {
-        Aluno aluno = GetAlunoAtivo();
-        if (aluno == null) return;
+        string selecionado = db.GetConfig("alunoSelecionado");
+        if (string.IsNullOrEmpty(selecionado)) return;
 
-        if (aluno.progressos == null) aluno.progressos = new List<FaseProgresso>();
+        var alunoEntity = db.GetAllAlunos().FirstOrDefault(a => a.Nome == selecionado);
+        if (alunoEntity == null) return;
 
-        FaseProgresso progresso = aluno.progressos.FirstOrDefault(p => p != null && p.miniGame == miniGame && p.fase == fase);
-
-        if (progresso == null)
-        {
-            progresso = new FaseProgresso { miniGame = miniGame, fase = fase };
-            aluno.progressos.Add(progresso);
-        }
-
-        if (completou)
-        {
-            progresso.completou = true;
-            // Regra: Salvar apenas se o novo tempo for menor ou se ainda nao tinha tempo
-            if (progresso.melhorTempo <= 0 || tempo < progresso.melhorTempo)
-            {
-                progresso.melhorTempo = tempo;
-            }
-        }
-        
-        Salvar();
+        db.SaveProgresso(alunoEntity.Id, miniGame, fase, completou, tempo);
+        _cachedData = null; // Invalida o cache para refletir mudanças na UI
     }
 }
+

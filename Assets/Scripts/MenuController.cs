@@ -34,14 +34,26 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        // Carrega os dados salvos dos alunos via DataManager
-        DataManager.Carregar();
+        // 1. Inicializa o Áudio primeiro para garantir que a interface reflita o estado correto
+        InicializarAudio();
+
+        // 2. Tenta carregar os dados. Se falhar (ex: falta de DLL), o jogo não trava.
+        try 
+        {
+            DataManager.Carregar();
+        } 
+        catch (System.Exception e) 
+        {
+            Debug.LogError("Erro ao carregar banco de dados: " + e.Message);
+        }
         
-        // Inicializa a interface abrindo o menu principal e atualizando a lista de alunos
+        // 3. Inicializa a interface
         AbrirMenuPrincipal();
         AtualizarInterfaceAlunos();
-        
-        // Configuração inicial do sistema de áudio (Mudo)
+    }
+
+    private void InicializarAudio()
+    {
         if (botaoMudo != null)
         {
             // Recupera o estado de mudo salvo nas preferências do usuário (padrão é desligado/0)
@@ -54,6 +66,7 @@ public class MenuController : MonoBehaviour
             AtualizarTextoBotaoMudo(estaMudo);
             
             // Configura o evento de clique para alternar o estado do som
+            botaoMudo.onClick.RemoveAllListeners();
             botaoMudo.onClick.AddListener(AlternarMudo);
         }
     }

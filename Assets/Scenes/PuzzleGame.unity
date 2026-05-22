@@ -1055,7 +1055,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleGenerator
   rows: 2
   columns: 3
-  spritesPath: Assets/MiniGames/Puzzle/Sprites
+  puzzleSprites:
+  - {fileID: -4632246861316429784, guid: 9c67432f40705d448a9d243a282fff43, type: 3}
+  - {fileID: -7564501458890126165, guid: 6b805aed921488b41b3fc3e6ca0bcd53, type: 3}
+  - {fileID: 5126950885662019152, guid: 3bcb09d0c9b7f334cb9e960f046ea5ac, type: 3}
+  - {fileID: -3988854657026267582, guid: 00ea18b3380c8c3499d4113adf99f1df, type: 3}
+  - {fileID: -8226299876606699022, guid: c641a0b595d28b442be008c001af0e54, type: 3}
   piecePrefab: {fileID: 683473176469197825, guid: 0edbd48840e58694eac5eb492dc14545, type: 3}
 --- !u!114 &1030352239
 MonoBehaviour:
